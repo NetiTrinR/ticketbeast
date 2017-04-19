@@ -15,7 +15,9 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('order_id')->unsigned();
+            $table->unsignedInteger('concert_id');
+            $table->unsignedInteger('order_id')->nullable();
+            $table->datetime('reserved_at')->nullable();
             $table->timestamps();
         });
     }
